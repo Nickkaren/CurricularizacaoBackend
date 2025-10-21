@@ -1,0 +1,38 @@
+package com.example.sospets.entities;
+
+import com.example.sospets.enums.Especie;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class Animal {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String nome;
+    private String raca;
+    private String porte;
+    private LocalDate dataNascimento;
+    private boolean eFilhote;
+    private Especie especie;
+    private String sexo;
+    private boolean statusAcolhimento;
+
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "tutor_id")
+    @JsonIgnore
+    private Tutor tutor;
+
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "cor_id")
+    private Cor cor;
+}
