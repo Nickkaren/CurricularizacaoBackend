@@ -43,7 +43,7 @@ public class TutorController {
 
     @GetMapping("/buscar")
     public ResponseEntity<Tutor>
-        findByIdOrNome(@RequestParam (required = false) String cpf, @RequestParam (required = false) String nome){
+        findByCpfOrNome(@RequestParam (required = false) String cpf, @RequestParam (required = false) String nome){
         return ResponseEntity.ok().body(mapper.map(service.findByCpfOrNome(cpf, nome), Tutor.class));
     }
 

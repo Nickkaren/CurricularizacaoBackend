@@ -61,16 +61,6 @@ public class AnimalController {
         return ResponseEntity.ok().body(service.findByEspecieOrderByNomeDesc(Especie.valueOf(especie)));
     }
 
-    @GetMapping(value = "/buscar/{idade}")
-    public ResponseEntity<List<Animal>> findByIdadeLessThan (@PathVariable Integer idade) {
-        return ResponseEntity.ok().body(service.findByIdadeLessThan(idade));
-    }
-
-    @GetMapping(value = "/buscar/idade/{idade}")
-    public ResponseEntity<List<Animal>> findByIdadeGreaterThan (@PathVariable Integer idade) {
-        return ResponseEntity.ok().body(service.findByIdadeGreaterThan(idade));
-    }
-
     @PutMapping(value = ID)
     public ResponseEntity<Animal> update (@PathVariable Integer id, @RequestBody Animal animal){
         animal.setId(id);

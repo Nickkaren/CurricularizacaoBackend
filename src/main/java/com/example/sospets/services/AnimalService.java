@@ -12,8 +12,6 @@ public interface AnimalService {
     List<Animal> findByNomeContainingIgnoreCase(String nome);
     List<Animal> findByNomeContainingIgnoreCaseAndEspecie(String nome, Especie especie);
     List<Animal> findByEspecieOrderByNomeDesc(Especie especie);
-    List<Animal> findByIdadeLessThan (Integer idade);
-    List<Animal> findByIdadeGreaterThan(Integer idade);
     Animal create(Animal animal);
     Animal update(Animal animal);
     void delete(Integer id);

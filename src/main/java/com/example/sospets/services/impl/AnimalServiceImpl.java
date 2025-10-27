@@ -52,16 +52,6 @@ public class AnimalServiceImpl implements AnimalService {
     }
 
     @Override
-    public List<Animal> findByIdadeLessThan (Integer idade) {
-        return repository.findByIdadeLessThan(idade);
-    }
-
-    @Override
-    public List<Animal> findByIdadeGreaterThan (Integer idade) {
-        return repository.findByIdadeGreaterThan(idade);
-    }
-
-    @Override
     public Animal update(Animal animal) {
         return repository.save(mapper.map(animal, Animal.class));
     }
